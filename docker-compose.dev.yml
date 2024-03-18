@@ -26,6 +26,7 @@ services:
       - proxy-network
     env_file:
       - ./sql-password.env.dev
+      - ./server.env.dev
     depends_on:
       - reverse-proxy
 
