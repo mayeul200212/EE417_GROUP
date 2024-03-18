@@ -1,0 +1,10 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  },
+  "scripts": {
+    "dev": "browser-sync start --server --no-open --files '*.html, *.js, ./img/*'"
+  }
+}

@@ -1,0 +1,57 @@
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    tty: true
+    volumes:
+      - ./client/:/home/node
+    networks:
+      - proxy-network
+    depends_on:
+      - reverse-proxy
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+    environment:
+      TEST_VAR_ENV: "Hello from Docker env"
+    volumes:
+      - ./server:/app
+    networks:
+      - db-network
+      - proxy-network
+    env_file:
+      - ./sql-password.env.dev
+    depends_on:
+      - reverse-proxy
+
+  reverse-proxy:
+    build:
+      context: ./reverse-proxy
+      dockerfile: Dockerfile.dev
+    ports:
+      - 80:80
+    restart: unless-stopped
+    networks:
+      - proxy-network
+
+  db:
+    build:
+      context: ./sql/config/
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - db-network
+
+networks:
+  proxy-network:
+  db-network:

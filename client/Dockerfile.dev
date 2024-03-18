@@ -1,0 +1,8 @@
+FROM node:21-alpine3.17
+
+USER node
+
+WORKDIR '/home/node'
+
+# CMD sleep 10000
+CMD yarn && yarn dev
