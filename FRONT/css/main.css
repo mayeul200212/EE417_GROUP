@@ -47,7 +47,7 @@ main {
 
 .card {
     width: 400px;
-    height: 400px;
+    height: 300px;
     margin: 20px auto;
     background-image: linear-gradient(225deg, #ea9f1a 0%, #3c4c64 50%, #133c64 100%);
     color: white;
@@ -69,6 +69,7 @@ main {
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: 400px;
 }
   
 .card:before {
