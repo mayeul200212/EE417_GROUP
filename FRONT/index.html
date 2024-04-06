@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart DCU Data Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
     <header>
         <div class="logo-nav-container">
             <div class="logo-container">
-                <img src="img/logo.png" alt="Smart DCU Data Dashboard Logo">
-            </div>
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Smart DCU Data Dashboard Logo">
+                  </a>
+                </div>
 
-            <nav>
-                <ul>
-                    <li><a href="#" data-page="home">HOME</a></li>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" data-page="home">HOME</a></li>
                     <li><a href="#" data-page="air-quality">AIR QUALITY</a></li>
                     <li><a href="#" data-page="noise-level">NOISE LEVEL</a></li>
                     <li><a href="occupancy.html">OCCUPANCY</a></li>
@@ -57,6 +59,7 @@
                     <p class="card-paragraph">Or login to your space and explore real-time data</p>
                     
                     <div class="login-button-container">
+                        <a href="clientlogin.html">
                         <button class="login-button">
                                 Login
                                 <div class="icon">
@@ -74,15 +77,14 @@
                                     </svg>
                                 </div>
                         </button>
+                    </a>
                         </div>
                     </div>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2024 Smart DCU Data Dashboard</p>
+    </footer>
 </body> 
-
-<footer>
-    <p>&copy; 2024 Smart DCU Data Dashboard</p>
-</footer>
 <script src="js/loader.js"></script>
-
 </html>
