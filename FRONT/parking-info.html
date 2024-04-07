@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart DCU Data Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div class="logo-nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="img/logo.png" alt="Smart DCU Data Dashboard Logo"></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-page="home">HOME</a></li>
+                    <li><a href="air-quality-info.html" data-page="air-quality">AIR QUALITY</a></li>
+                    <li><a href="noise-level-info.html" data-page="noise-level">NOISE LEVEL</a></li>
+                    <li><a href="occupancy-info.html">OCCUPANCY</a></li>
+                    <li><a href="parking-info.html">PARKING</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+
+            <div class="login-button-container">
+                <button class="login-button">
+                        Login
+                        <div class="icon">
+                            <svg
+                            height="24"
+                            width="24"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                fill="currentColor"
+                            ></path>
+                            </svg>
+                        </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="card-sensor">
+        <div class="card-content" style="padding:0 10px;">
+            <p class="card-title">Car Parking Tracker</p>
+            <p class="card-paragraph">The car parking tracker provides real-time data on the availability of parking spaces in the DCU campus.</p>
+            <p class="card-paragraph">The data is collected using sensors installed in the parking lots, which monitor the occupancy of each space.</p>
+            <p class="card-paragraph">The sensors can detect the presence or absence of a vehicle in each parking slot. </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart DCU Data Dashboard</p>
+    </footer>
+</body>
+
+<script src="js/loginButton.js"></script>
+
+</html>
