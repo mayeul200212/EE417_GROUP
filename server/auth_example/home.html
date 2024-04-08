@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to Home Page</h1>
+    <button id="adminBtn">Admin</button>
+    <button id="userBtn">User</button>
+    <button onclick="logout()">Logout</button>
+
+    <table id="usersTable" border="1">
+        <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('adminBtn').addEventListener('click', fetchUsers);
+        document.getElementById('userBtn').addEventListener('click', fetchUsers);
+
+        async function fetchUsers() {
+            const token = localStorage.getItem('userToken');
+            if (!token) {
+                alert('Please login first.');
+                return;
+            }
+
+            const endpoint = this.id === 'adminBtn' ? 'admin/all-users' : 'public/test';
+
+            try {
+                const response = await fetch(`http://localhost:8080/${endpoint}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const result = await response.json();
+                
+                if (this.id === 'adminBtn') {
+                    const data = result.data;
+                    console.log('Admin data:', data);
+
+                    const table = document.getElementById('usersTable');
+
+                    let rows = table.getElementsByTagName('tr');
+                    while(rows.length > 1) {
+                        table.deleteRow(1);
+                    }
+
+                    data.forEach(user => {
+                        let row = table.insertRow(-1); 
+                        let cell1 = row.insertCell(0);
+                        let cell2 = row.insertCell(1);
+                        let cell3 = row.insertCell(2); // Cell for delete button
+                        cell1.textContent = user.username;
+                        cell2.textContent = user.role.name;
+
+                        // Create a delete button
+                        let deleteBtn = document.createElement('button');
+                        deleteBtn.textContent = 'Delete';
+                        deleteBtn.onclick = async () => {
+                            try {
+                                const deleteResponse = await fetch(`http://localhost:8080/admin/delete-user/${user.id}`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Authorization': `Bearer ${token}`
+                                    }
+                                });
+
+                                if (!deleteResponse.ok) throw new Error(`HTTP error! status: ${deleteResponse.status}`);
+
+                                alert('User deleted successfully');
+                                fetchUsers.call(document.getElementById('adminBtn')); // Reload the user list
+                            } catch (error) {
+                                console.error('Error:', error.message);
+                                alert(`Failed to delete user. ${error.message}`);
+                            }
+                        };
+                        cell3.appendChild(deleteBtn);
+                    });
+                } else {
+                    // Handle public/test response
+                    console.log('Public data:', result);
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('userToken');
+            window.location.href = 'auth.html'; 
+        }
+    </script>
+</body>
+</html>
