@@ -131,6 +131,7 @@ main {
 }
 
 .login-button {
+    justify-content: center;
     background: #ea9f1a;
     color: white;
     font-family: inherit;
@@ -209,6 +210,7 @@ main {
   label {
     display: block;
     margin-bottom: 0.5rem;
+    color: #000;
   }
   
   input[type="text"],
@@ -251,8 +253,13 @@ main {
     margin-bottom: 2rem;
     font-size: 40px;
     background-color: white;
+    color: #000;
     border-radius: 8px;
     opacity: 0.95;
+  }
+
+  h3, .address{
+    color: #000;
   }
 
   .contact-cards {
