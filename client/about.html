@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Smart Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png"><!-- FAVICON -->
+    <link rel="stylesheet" type="text/css" href="css/main.css"><!-- CSS STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/navbar.css"><!-- CSS STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/about.css"><!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!-- FONT AWESOME -->
+  </head>
+
+  <body>
+        <!-- H E A D E R     A N D     N A V B A R -->
+        <header>
+          <div class="logo-nav-container">
+              <div class="back-arrow-container">
+                  <a href="#" onclick="goBack()">
+                      <svg width="80" height="50" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                  </a>
+              </div>
+  
+              <div class="logo-container">
+                  <a href="index.html"><img src="img/logo.png" alt="Smart DCU Data Dashboard Logo"></a>
+              </div>
+  
+              <nav>
+                  <ul>
+                      <li><a href="index.html" data-page="home">HOME</a></li>
+                      <li class="dropdown">
+                          <a href="#" data-page="about">ABOUT</a>
+                          <div class="dropdown-content">
+                              <a href="#">Team</a>
+                          </div>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" data-page="sensors">SENSORS</a>
+                          <div class="dropdown-content">
+                              <a href="air-quality-info.html" data-page="air-quality">AIR QUALITY</a>
+                              <a href="noise-level-info.html" data-page="noise-level">NOISE LEVEL</a>
+                              <a href="occupancy-info.html" data-page="occupancy">OCCUPANCY</a>
+                              <a href="parking-info.html" data-page="parking">PARKING</a>
+                          </div>
+                      </li>
+                      <li><a href="contact.html" data-page="contact">CONTACT</a></li>
+                  </ul>
+              </nav>
+  
+              <div class="login-button-container">
+                  <button class="login-button">
+                          Login
+                          <div class="icon">
+                              <svg
+                              height="24"
+                              width="24"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path d="M0 0h24v24H0z" fill="none"></path>
+                              <path
+                                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                  fill="currentColor"
+                              ></path>
+                              </svg>
+                          </div>
+                  </button>
+              </div>
+          </div>
+      </header>
+
+    <div class="card card-about" style="top: 60px">
+      <div class="card-content" style="padding: 2px">
+        <p class="card-title">ABOUT US</p>
+        <p class="card-title" style="font-size: 18px">Group D</p>
+        <p class="card-paragraph">--------</p>
+        <p class="card-paragraph">
+          We are a team of students tasked to develop a smart dashboard designed
+          to visualize various sets of sensor data.
+        </p>
+        <p class="card-paragraph">
+          The dashboard includes information about: Noise levels, room
+          occupancy, air quality, car parking availability.
+        </p>
+      </div>
+    </div>
+
+    <div class="card card-team" style="position: absolute; right: 100px; top: 80px">
+      <div class="card-content" style="padding: 9px">
+        <p class="card-title">Front-End</p>
+        <p class="card-title" style="margin-top: 0px">HTML/CSS Javascript</p>
+        <p class="card-paragraph">Basil Saji</p>
+        <p class="card-paragraph">Marouane Ben Zineb</p>
+        <p class="card-paragraph">Shashank Harish Shrivastav</p>
+      </div>
+    </div>
+
+    <div
+      class="card card-team"
+      style="position: absolute; left: 100px; top: 80px"
+    >
+      <div class="card-content" style="padding: 15px">
+        <p class="card-title">Server-Side & DB</p>
+        <p class="card-paragraph">Sonu Antony</p>
+        <p class="card-paragraph">Naiyuan Qing</p>
+        <p class="card-paragraph">Nishad Pramod Tapse</p>
+      </div>
+    </div>
+
+    <div
+      class="card card-team"
+      style="position: absolute; left: 100px; bottom: 50px"
+    >
+      <div class="card-content" style="padding: 0px">
+        <p class="card-title" style="padding: 2px">
+          Testing, Deployment & Management
+        </p>
+        <p class="card-paragraph">Mayeul Kergall</p>
+        <p class="card-paragraph">Colm Murphy</p>
+        <p class="card-paragraph">Nishad Pramod Tapse</p>
+      </div>
+    </div>
+
+    <!-- F O O T E R -->
+    <footer>
+      <p>&copy; 2024 Smart DCU Data Dashboard</p>
+      <div class="social-icons">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/DCU" class="icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/school/dublin-city-university/"
+            class="icon"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/@DublinCityUniversity" class="icon">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dublincityuniversity/"
+            class="icon"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com/DCU/" class="icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script src="js/loginButton.js"></script>
+  <script src="js/goBack.js"></script>
+</html>
