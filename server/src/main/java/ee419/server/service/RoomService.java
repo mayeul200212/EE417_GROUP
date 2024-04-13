@@ -7,6 +7,8 @@ import io.micrometer.common.util.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoomService {
 
@@ -32,5 +34,10 @@ public class RoomService {
 
         roomRepository.save(room);
         return ResponseEntity.ok(ResultVo.success("Room added successful",""));
+    }
+
+    public ResponseEntity<ResultVo<List<Room>>> getAllRooms(){
+        List<Room> rooms = roomRepository.findAll();
+        return ResponseEntity.ok(ResultVo.success("Fetched all rooms",rooms));
     }
 }

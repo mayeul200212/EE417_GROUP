@@ -6,18 +6,23 @@ import ee419.server.utils.ResultVo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/admin")
-public class RoomController {
+import java.util.List;
 
+@RestController
+public class RoomController {
     private final RoomService roomService;
 
     public RoomController(RoomService roomService) {
         this.roomService = roomService;
     }
 
-    @PostMapping("/room/add")
+    @PostMapping("/admin/room/add")
     public ResponseEntity<ResultVo<String>> addRoom(@RequestBody Room request){
         return roomService.addRoom(request);
+    }
+
+    @GetMapping("room/get-all-rooms")
+    public ResponseEntity<ResultVo<List<Room>>> getAllRooms(){
+        return roomService.getAllRooms();
     }
 }
