@@ -2,6 +2,7 @@ FROM nginx:1.25.3
 
 COPY . /usr/share/nginx/html
 
-RUN find . -type f -name "*.js" -exec sed -i 's/localhost:8080\|localhost:8081/https:\/\/autosup.fun\/api/g' {} +
+RUN find . -type f -name "*.js" -exec sed -i 's|http://localhost:8080\|http://localhost:8081|https://autosup.fun/api|g' {} +
+
 
 EXPOSE 80
