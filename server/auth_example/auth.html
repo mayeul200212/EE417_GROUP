@@ -40,7 +40,7 @@
                 const username = document.getElementById('signInUsername').value;
                 const password = document.getElementById('signInPassword').value;
 
-                const url = 'http://localhost:8080/auth/signin';
+                const url = 'http://localhost:8080/api/auth/signin';
 
                 const response = await fetch(url, {
                     method: 'POST',
@@ -77,7 +77,7 @@
                 const password = document.getElementById('registerPassword').value;
                 const role = document.getElementById('registerRole').value;
 
-                const url = 'http://localhost:8080/auth/signup';
+                const url = 'http://localhost:8080/api/auth/signup';
 
                 const response = await fetch(url, {
                     method: 'POST',
