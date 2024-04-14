@@ -12,7 +12,6 @@ The Smart DCU Data Dashboard is a web application designed to visualize and summ
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 - [Production](#Production)
-- [Examples](#examples)
 - [Troubleshooting](#troubleshooting)
 - [Contributors](#contributors)
 
