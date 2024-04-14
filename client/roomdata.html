@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>DCU Data Dashboard</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <link rel="stylesheet" href="css/roomdata.css" />
+
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <a href="dashboard.html">DASHBOARD</a>
+        <a href="roomdata.html">ROOM DATA</a>
+        <a href="vehicleparking.html">PARKING</a>
+        <a href="index.html">LOGOUT</a>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+      </div>
+
+      <div class="main-cards">
+        <div
+          class="card"
+          id="roomCountCard"
+          data-toggle="modal"
+          data-target="#roomNamesModal"
+        >
+          <div class="card-inner">
+            <p class="text-primary">ROOM NO</p>
+            <span class="material-symbols-outlined text-blue"
+              >holiday_village</span
+            >
+          </div>
+          <span class="text-primary font-weight-bold" id="roomCount">S125</span>
+
+      
+          <div class="dropdown">
+          <button class="dropbtn">
+             Room No
+            <select id="roomNamesDropdown"></select>
+          </button>
+        </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">AIR QUALITY</p>
+            <span class="material-symbols-outlined text-orange">
+              aq_indoor
+            </span>
+          </div>
+          <span class="text-primary font-weight-bold" id="airQualityValue"
+            >90%</span
+          >
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">NOISE LEVEL</p>
+            <span class="material-symbols-outlined text-green">
+              equalizer
+            </span>
+          </div>
+          <span class="text-primary font-weight-bold" id="noiseLevelValue"
+            >90 dB</span
+          >
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">TOTAL OCCUPANCY</p>
+            <span class="material-symbols-outlined text-red"> home </span>
+          </div>
+          <span class="text-primary font-weight-bold" id="occupancy">50</span>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="charts-card">
+          <p class="chart-title">Room Details</p>
+          <div id="bar-chart"></div>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Noise Level and Air Quality</p>
+          <div id="area-chart"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <script src="/js/roomdata.js"></script>
+  </body>
+</html>

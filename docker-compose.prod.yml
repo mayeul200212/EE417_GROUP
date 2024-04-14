@@ -1,11 +1,54 @@
-version: "3.1"
-
 services:
   db:
     build:
       context: ./sql/config/
       dockerfile: Dockerfile.prod
     volumes:
-      - ./sql/data:/var/lib/mysql
+      - ./sql/prod:/var/lib/mysql
     env_file:
       - sql-password.env.prod
+    ports:
+      - "3306:3306"
+    networks:
+      - db-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    networks:
+      - nginx
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.prod
+    environment:
+      - SPRING_PROFILES_ACTIVE="prod"
+    networks:
+      - db-network
+      - nginx
+    depends_on:
+      - db
+    env_file:
+      - server.env.prod
+
+  ee-reverse-proxy:
+    build:
+      context: ./reverse-proxy
+      dockerfile: Dockerfile.prod
+    volumes:
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
+      - ./logs:/var/log/nginx
+    restart: unless-stopped
+    networks:
+      - nginx
+      - nginx-gateway
+
+networks:
+  db-network:
+  nginx:
+  nginx-gateway:
+    external: true

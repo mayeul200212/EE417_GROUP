@@ -1,0 +1,21 @@
+name: SSH Deploy Script
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing SSH Command
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 49877
+          command_timeout: 20m
+          script: |
+            cd /home/urgencetree/EE417_GROUP
+            bash ./deploy.sh

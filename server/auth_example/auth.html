@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign In & Register</title>
+</head>
+
+<body>
+
+    <h2>Sign In</h2>
+    <form id="signInForm">
+        Username:<br>
+        <input type="text" id="signInUsername">
+        <br>
+        Password:<br>
+        <input type="password" id="signInPassword">
+        <br><br>
+        <button type="button" onclick="signIn()">Sign In</button>
+    </form>
+
+    <h2>Register</h2>
+    <form id="registerForm">
+        Username:<br>
+        <input type="text" id="registerUsername">
+        <br>
+        Password:<br>
+        <input type="password" id="registerPassword">
+        <br>
+        Role:<br>
+        <select id="registerRole">
+            <option value="ROLE_USER">User</option>
+            <option value="ROLE_ADMIN">Admin</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="register()">Register</button>
+    </form>
+    <script>
+        async function signIn() {
+            try {
+                const username = document.getElementById('signInUsername').value;
+                const password = document.getElementById('signInPassword').value;
+
+                const url = 'http://localhost:8080/api/auth/signin';
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    }),
+                });
+
+                if (!response.ok) throw new Error(`Error: ${response.status}`);
+
+                const data = await response.json();
+                if (data.code === 200 && data.data) { // Assuming success response includes a code 200 and token in data
+                    console.log('Success:', data);
+                    // Save the token to local storage
+                    localStorage.setItem('userToken', data.data);
+                    // Redirect to home page
+                    window.location.href = 'home.html';
+                } else {
+                    throw new Error(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Login failed. ' + error.message);
+            }
+        }
+
+        async function register() {
+            try {
+                const username = document.getElementById('registerUsername').value;
+                const password = document.getElementById('registerPassword').value;
+                const role = document.getElementById('registerRole').value;
+
+                const url = 'http://localhost:8080/api/auth/signup';
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                        role: role
+                    }),
+                });
+
+                if (!response.ok) throw new Error(`Error: ${response.status}`);
+
+                const data = await response.json();
+                if (data.code === 200) {
+                    console.log('Success:', data);
+                    alert('Registration successful');
+                } else {
+                    throw new Error(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Registration failed. ' + error.message);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
