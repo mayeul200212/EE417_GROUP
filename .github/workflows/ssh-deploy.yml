@@ -15,6 +15,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
+          proxy_port: ${{ secrets.PORT }}
           command_timeout: 20m
           script: |
             cd /home/urgencetree/EE417_GROUP
