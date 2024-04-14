@@ -1,8 +1,3 @@
-document.querySelector('.login-button').addEventListener('click', function() {
-    window.location.href = 'dashboard.html';
-});
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
     if (localStorage.getItem('token-info')) {
