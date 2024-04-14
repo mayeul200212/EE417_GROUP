@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       type: 'post',
       async: false,
       cache: false,
-      url: 'http://localhost:8081/login',
+      url: 'http://localhost:8080/login',
       xhrFields: {
        withCredentials: true
       },
