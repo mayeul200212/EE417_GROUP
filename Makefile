@@ -19,3 +19,6 @@ dev-all:
 
 #### PROD ####
 
+prod:
+	COMPOSE_PROJECT_NAME=ee417-grp-prod docker-compose -f docker-compose.prod.yml up -d --remove-orphans --build db
+	COMPOSE_PROJECT_NAME=ee417-grp-prod docker-compose -f docker-compose.prod.yml up --remove-orphans --build client server
