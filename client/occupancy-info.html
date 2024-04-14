@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupancy | Smart Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png"><!-- FAVICON -->
+    <link rel="stylesheet" type="text/css" href="css/main.css"><!-- CSS STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/navbar.css"><!-- CSS STYLESHEET -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!-- FONT AWESOME -->
+</head>
+<body>
+        <!-- H E A D E R     A N D     N A V B A R -->
+        <header>
+            <div class="logo-nav-container">
+                <div class="back-arrow-container">
+                    <a href="#" onclick="goBack()">
+                        <svg width="80" height="50" viewBox="0 0 25 25" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                </div>
+    
+                <div class="logo-container">
+                    <a href="index.html"><img src="img/logo.png" alt="Smart DCU Data Dashboard Logo"></a>
+                </div>
+    
+                <nav>
+                    <ul>
+                        <li><a href="index.html" data-page="home">HOME</a></li>
+                        <li class="dropdown">
+                            <a href="about.html" data-page="about">ABOUT</a>
+                            <div class="dropdown-content">
+                                <a href="#">Team</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-page="sensors">SENSORS</a>
+                            <div class="dropdown-content">
+                                <a href="air-quality-info.html" data-page="air-quality">AIR QUALITY</a>
+                                <a href="noise-level-info.html" data-page="noise-level">NOISE LEVEL</a>
+                                <a href="occupancy-info.html" data-page="occupancy">OCCUPANCY</a>
+                                <a href="parking-info.html" data-page="parking">PARKING</a>
+                            </div>
+                        </li>
+                        <li><a href="contact.html" data-page="contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+    
+                <div class="login-button-container">
+                    <button class="login-button">
+                            Login
+                            <div class="icon">
+                                <svg
+                                height="24"
+                                width="24"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                    fill="currentColor"
+                                ></path>
+                                </svg>
+                            </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+    <div class="card-sensor">
+        <div class="card-content" style="padding:0 5px; bottom: 50px;">
+            <p class="card-title">Room Occupancy Sensors</p>
+            <p class="card-paragraph">Room occupancy sensors are used to detect the presence of people inside the buildings of DCU.</p>
+            <p class="card-paragraph">These sensors typically use infrared, ultrasonic, microwave, or camera-based technologies to sense when a space is occupied.</p>
+            <p class="card-paragraph">The data is collected and displayed in real-time, allowing users to check the occupancy levels in different spaces and rooms of the campus.</p>
+            <p class="card-paragraph">The user can decide which space is the most comfortable for him.</p>
+        </div>
+    </div>
+
+   <!-- F O O T E R -->
+   <footer>
+    <p>&copy; 2024 Smart DCU Data Dashboard</p>
+    <div class="social-icons">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/DCU" class="icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.linkedin.com/school/dublin-city-university/" class="icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+               <a href="https://www.youtube.com/@DublinCityUniversity" class="icon">
+            <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/dublincityuniversity/" class="icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            <a href="https://twitter.com/DCU/" class="icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+    </div>
+</footer>
+</body>
+
+<script src="js/loginButton.js"></script>
+<script src="js/goBack.js"></script> 
+
+</html>
