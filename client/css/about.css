@@ -1,0 +1,21 @@
+.card-about {
+    height: 220px;
+}
+
+.card-about:hover {
+    height: 330px;
+}
+
+.card-team {
+    width: 300px;
+    height: 200px;
+
+}
+
+.card-title {
+    margin-bottom:0
+}
+
+.card-team:hover {
+    height: 240px;
+}
